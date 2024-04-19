@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('http://hackathon-undefined.ru:8000');
+        const response = await axios.get('https://cors-anywhere.herokuapp.com/http://hackathon-undefined.ru:8000');
         console.log(response);
         setMessage(response.data.message);
       } catch (error) {
