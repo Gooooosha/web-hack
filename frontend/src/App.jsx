@@ -10,15 +10,16 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+        const response = await fetch('http://hackathon-undefined.ru:8000', {
+          mode: 'no-cors'
+        });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        const data = await response.json();
-        console.log(data);
-        setMessage(data.title); // Предполагается, что в ответе есть поле "title"
+        setMessage('Request sent successfully'); // Сообщение об успешной отправке запроса
       } catch (error) {
         console.error('Error fetching data:', error);
+        setMessage('Error fetching data'); // Сообщение об ошибке при отправке запроса
       }
     }
     fetchData();
