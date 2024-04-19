@@ -1,11 +1,15 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-
 app = FastAPI()
 
 origins = [
     "http://hackathon-undefined.ru:80",
+    "http://hackathon-undefined.ru:8000",
+    "http://localhost:80",
+    "http://localhost:8000",
+    "http://127.0.0.1:80",
+    "http://127.0.0.1:8000"
 ]
 
 app.add_middleware(
@@ -15,6 +19,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 @app.get("/")
 async def root():
