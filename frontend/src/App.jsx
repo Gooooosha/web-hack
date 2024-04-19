@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
@@ -11,9 +10,13 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('http://hackathon-undefined.ru:8000');
-        console.log(response);
-        setMessage(response.data.message);
+        const response = await fetch('http://hackathon-undefined.ru:8000');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log(data);
+        setMessage(data.message);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
