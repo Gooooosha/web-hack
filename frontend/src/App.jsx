@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('http://hackathon-undefined.ru/hello/world:8000');
+        const response = await axios.get('http://hackathon-undefined.ru:8000/hello/world');
         setMessage(response.data.message);
       } catch (error) {
         console.error('Error fetching data:', error);
