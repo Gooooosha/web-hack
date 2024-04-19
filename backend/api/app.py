@@ -16,7 +16,10 @@ origins = [
     "http://80.242.57.199:80",
     "http://80.242.57.199:8000",
     "http://hackathon-undefined.ru/",
-    "http://hackathon-undefined.ru"
+    "http://hackathon-undefined.ru",
+    "hackathon-undefined.ru:8000",
+    "hackathon-undefined.ru:80",
+    "hackathon-undefined.ru"
 ]
 
 app.add_middleware(
@@ -25,6 +28,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"]
 )
 
 
