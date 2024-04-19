@@ -9,5 +9,6 @@ services:
     # Можно указать другой порт для доступа к приложению
     # ports:
     #   - "8080:80"
-    # volumes:
+    # volumes:g
     #   - ./frontend/nginx.conf:/etc/nginx/nginx.conf
+
