@@ -12,7 +12,7 @@ RUN npm run build
 # Stage 2 - создаем минимальный образ для запуска приложения
 FROM nginx:alpine
 
-COPY --from=build /app/frontend/dist /usr/share/nginx/html
+COPY --from=build /frontend/dist /usr/share/nginx/html
 
 EXPOSE 80
 
