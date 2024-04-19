@@ -6,9 +6,15 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
-    # Можно указать другой порт для доступа к приложению
-    # ports:
-    #   - "8080:80"
-    # volumes:g
-    #   - ./frontend/nginx.conf:/etc/nginx/nginx.conf
 
+  fastapi_webapp:
+    ports:
+      - "8000:8000"
+    build:
+      context: .
+      dockerfile: backend/api/Dockerfile
+    volumes:
+      - .:/app
+
+    environment:
+      - PYTHONUNBUFFERED=1
