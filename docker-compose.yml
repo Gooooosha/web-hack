@@ -9,7 +9,7 @@ services:
 
   fastapi_webapp:
     ports:
-      - "8000:8000"
+      - "80:80"
     build:
       context: .
       dockerfile: backend/api/Dockerfile
