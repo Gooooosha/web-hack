@@ -4,7 +4,7 @@ services:
   react_app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: frontend/Dockerfile
     ports:
       - "3000:80"  # Проброс порта 3000 на локальной машине на порт 80 контейнера
     volumes:
