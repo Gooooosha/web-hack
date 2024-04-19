@@ -5,7 +5,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "80:90"
+      - "8080:80"
     # Можно указать другой порт для доступа к приложению
     # ports:
     #   - "8080:80"
