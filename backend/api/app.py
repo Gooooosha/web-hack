@@ -14,7 +14,9 @@ origins = [
     "80.242.57.199:8000",
     "80.242.57.199:80",
     "http://80.242.57.199:80",
-    "http://80.242.57.199:8000"
+    "http://80.242.57.199:8000",
+    "http://hackathon-undefined.ru/",
+    "http://hackathon-undefined.ru"
 ]
 
 app.add_middleware(
