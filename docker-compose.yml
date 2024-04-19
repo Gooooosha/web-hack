@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  react_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"  # Проброс порта 3000 на локальной машине на порт 80 контейнера
+    volumes:
+      - ./src:/app/src  # Примонтировать локальный каталог src к каталогу /app/src в контейнере
+      - ./public:/app/public  # Примонтировать локальный каталог public к каталогу /app/public в контейнере
