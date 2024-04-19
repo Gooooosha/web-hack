@@ -7,6 +7,7 @@ WORKDIR /app
 # Копирование зависимостей и установка их
 COPY package.json package-lock.json ./
 RUN npm install
+RUN npm install axios
 
 # Копирование остальных файлов в контейнер
 COPY . .
