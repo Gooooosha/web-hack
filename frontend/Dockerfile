@@ -9,6 +9,9 @@ RUN npm install
 COPY frontend .
 RUN npm run build
 
+# Проверяем содержимое каталога dist
+RUN ls -l /app/frontend/dist
+
 # Stage 2 - создаем минимальный образ для запуска приложения
 FROM nginx:alpine
 
