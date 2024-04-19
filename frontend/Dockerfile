@@ -2,7 +2,7 @@
 FROM node:14-alpine as build
 
 # Устанавливаем рабочую директорию в /app
-WORKDIR /app
+WORKDIR /app/frontend
 
 # Копируем файлы package.json и package-lock.json для установки зависимостей
 COPY package*.json ./
