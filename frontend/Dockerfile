@@ -21,7 +21,7 @@ FROM nginx:latest
 COPY --from=build /app/dist /usr/share/nginx/html
 
 # Экспонируем порт 80 для доступа к приложению
-EXPOSE 80
+EXPOSE 90
 
 # Команда для запуска Nginx внутри контейнера
 CMD ["nginx", "-g", "daemon off;"]
