@@ -1,22 +1,27 @@
-# Stage 1 - сборка приложения
-FROM node:14-alpine as build
+# Используем базовый образ Node.js для сборки React приложения
+FROM node:latest AS build
 
-WORKDIR /app/frontend
+# Установка директории приложения в контейнере
+WORKDIR /app
 
-COPY frontend/package*.json ./
+# Копирование зависимостей и установка их
+COPY package.json package-lock.json ./
 RUN npm install
 
-COPY frontend .
+# Копирование остальных файлов в контейнер
+COPY . .
+
+# Сборка React приложения
 RUN npm run build
 
-# Проверяем содержимое каталога dist
-RUN ls -l /app/frontend/dist
+# Используем образ Nginx для развертывания React приложения
+FROM nginx:latest
 
-# Stage 2 - создаем минимальный образ для запуска приложения
-FROM nginx:alpine
+# Копирование собранного React приложения из предыдущего этапа
+COPY --from=build /app/dist /usr/share/nginx/html
 
-COPY --from=build /app/frontend/dist /usr/share/nginx/html
-
+# Экспонируем порт 80 для доступа к приложению
 EXPOSE 80
 
+# Команда для запуска Nginx внутри контейнера
 CMD ["nginx", "-g", "daemon off;"]
